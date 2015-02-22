@@ -29,9 +29,12 @@ var app = express();
 //connect to our database
 var mongoose = require('mongoose');
 
-var dbName='spblogger';
+//var dbName='spblogger';
+var dbName = 'heroku_app34253246';
+var username = ENV['mongo_username'];
+var password = ENV['mongo_password'];
 
-var connectionString='mongodb://localhost:27017/'+dbName;
+var connectionString='mongodb://'+username+':'+password+'@ds047571.mongolab.com:47571/'+dbName;
 
 if(process.env.OPENSHIFT_MONGODB_DB_URL){
   connectionString = process.env.OPENSHIFT_MONGODB_DB_URL + dbName;
@@ -41,9 +44,9 @@ mongoose.connect(connectionString);
 
 install.generateAdmin();
 
-// view engine setup
+/*// view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');*/
 
 app.use(favicon());
 app.use(logger('dev'));
@@ -52,8 +55,8 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'app')));
 
-app.use(cors({origin:'http://localhost:8000',credentials:true}));
-
+/*app.use(cors({origin:'http://localhost:8000',credentials:true}));
+*/
 app.use(session({secret: '$2a$10$.wpd8jJriLDRXwptB8jI.usYQUELftTl/.OJ2DRuR8T/qtlUb7WEm',httpOnly: true,saveUninitialized: true, resave: true,cookie: { maxAge: 1800000 }}));
 app.use(passport.initialize());
 app.use(passport.session());
