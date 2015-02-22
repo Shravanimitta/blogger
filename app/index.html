@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app="spBlogger">
+<head>
+  <meta charset="utf-8">
+  <base href="/">
+  <title>The Single Page Blogger</title>
+
+  <link rel="stylesheet" href="built/app.min.css"/>
+</head>
+<body>
+  <div class="container" ng-cloak>
+	<br/>  	
+	<div class="jumbotron text-center">
+		<h1>{{'TITLE' | translate}}</h1>
+		<p>{{'SUBTITLE' | translate}}</p>
+        <div class="btn-group btn-toggle">
+            <button class="btn btn-default" ng-class="{en:'active'}[languagePreference.currentLanguage]" ng-click="languagePreference.switchLanguage('en')" >English</button>
+            <button class="btn btn-default" ng-class="{de:'active'}[languagePreference.currentLanguage]" ng-click="languagePreference.switchLanguage('de')">German</button>
+        </div>
+	</div>
+  	<div ui-view class="main-content">Loading . . .</div>
+	<div class="row footer">
+		<div class="col-xs-12 text-center">
+			<p>{{'TITLE' | translate}}</p>
+		</div>
+        <div class="notice"><i>(If you are using the server API hosted in cloud it might take a while to start for the first time as the app might be off due to inactivity.Please refresh the page in a minute.)</div></i>
+	</div>
+  </div>
+</body>
+
+    <script src="built/app.min.js"></script>
+</html>
