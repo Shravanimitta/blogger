@@ -26,6 +26,9 @@ require('./routes/passport-config')(LocalStrategy,passport,User); // Set up Auth
 
 var app = express();
 
+
+
+
 //connect to our database
 var mongoose = require('mongoose');
 
@@ -54,6 +57,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'app')));
+app.set('port', (process.env.PORT || 8080));
 
 /*app.use(cors({origin:'http://localhost:8000',credentials:true}));
 */
@@ -97,6 +101,11 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
+});
+
+
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'));
 });
 
 module.exports = app;
