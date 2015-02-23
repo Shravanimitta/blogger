@@ -31,8 +31,8 @@ var mongoose = require('mongoose');
 
 //var dbName='spblogger';
 var dbName = 'heroku_app34253246';
-var username = ENV['mongo_username'];
-var password = ENV['mongo_password'];
+var username = 'shravanimitta';
+var password = 'shravanimitta';
 
 var connectionString='mongodb://'+username+':'+password+'@ds047571.mongolab.com:47571/'+dbName;
 
