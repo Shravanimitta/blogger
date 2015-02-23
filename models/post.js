@@ -10,7 +10,7 @@ var postSchema=new Schema({
     content:'String',
     tags:'String',
     keywords:'String',
-	author:{type:String,default:'Admin'},
+	author:{type:String,default:'Shravani'},
 	datePublished: { type: Date, default: Date.now },
 	comments:[{
 		content:'String',
