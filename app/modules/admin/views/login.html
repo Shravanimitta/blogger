@@ -4,8 +4,8 @@
         <div class="account-wall">
             <form class="form-signin" ng-submit="login()">
                 <div ng-show="invalidLogin" class="alert alert-danger">Invalid username/password</div>
-                <input type="text" class="form-control" placeholder="Username" ng-model="credentials.username" ng-required="true"/>
-                <input type="password" class="form-control" placeholder="Password" ng-model="credentials.password" ng-required="true"/>
+                <input type="text" class="form-control" placeholder="Username" ng-model="credentials.username" ng-required="true" value="admin"/>
+                <input type="password" class="form-control" placeholder="Password" ng-model="credentials.password" ng-required="true" value="admin"/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">{{buttonText}}</button>
             </form>
         </div>
